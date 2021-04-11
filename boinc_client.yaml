@@ -5,7 +5,7 @@ metadata:
   labels:
     app: boinc
 spec:
-  replicas: 3
+  replicas: 10
   selector:
     matchLabels:
       app: boinc
@@ -16,8 +16,9 @@ spec:
     spec:
       containers:
       - name: boinc
-        image: boinc/client
-        #image: ghcr.io/linuxserver/boinc:arm64v8-latest
+        image: ghcr.io/linuxserver/boinc                    # x86-64	latest
+        #image: ghcr.io/linuxserver/boinc:arm64v8-latest    # arm64	arm64v8-latest
+        #image: ghcr.io/linuxserver/boinc:arm32v7-latest    # armhf	arm32v7-latest
         env:
         - name: BOINC_CMD_LINE_OPTIONS
           value: "--acct_mgr attach https://scienceunited.org/ $SECRET_USERNAME $SECRET_PASSWORD"
