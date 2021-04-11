@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: boinc-deployment
+  labels:
+    app: boinc
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: boinc
+  template:
+    metadata:
+      labels:
+        app: boinc
+    spec:
+      containers:
+      - name: boinc
+        image: boinc/client
+        env:
+        - name: BOINC_CMD_LINE_OPTIONS
+          value: "-acct_mgr attach https://scienceunited.org/ <EMAIL> <PASS>"
