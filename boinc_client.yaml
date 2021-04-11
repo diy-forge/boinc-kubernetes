@@ -17,6 +17,7 @@ spec:
       containers:
       - name: boinc
         image: boinc/client
+        #image: ghcr.io/linuxserver/boinc:arm64v8-latest
         env:
         - name: BOINC_CMD_LINE_OPTIONS
           value: "--acct_mgr attach https://scienceunited.org/ $SECRET_USERNAME $SECRET_PASSWORD"
