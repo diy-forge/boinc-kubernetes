@@ -9,24 +9,25 @@ Deploying a Boinc pod in k3s with 3 tasks
   # Load Credentials in a secret
   $> kubectl apply -f ./secrets.yaml
 
-  $ Apply pod
+  $ Apply deployment
   $> kubectl apply -f ./boinc_client.yaml
 
   # We can check that everything went fine with the kubectl commands:
 
-  $> kubectl describe pod boinc-deployment
-  $> kubectl logs boinc-deployment
-  
-  $> kubectl logs <POD_ID> -n default
+  $> kubectl describe pod boinc-deployment          # Describe deployment stats
+  $> kubectl get pods -n default                    # List all pods from default (boinc-deployment-*)
+  $> kubectl logs <POD_ID> -n default               # Log from a pod
+  $> kubectl get pods --all-namespaces -o wide      # Pod by container
   
 ```
 
 TODOs
 
 - [x] Add kubernetes support
-- [ ] Using secrets template to avoid to push credentials
+- [x] Using secrets template to avoid to push credentials
+- [ ] Add other container definitions for armhf instead arm64
+- [ ] Document the way to access a pod (guacamole GUI)
 - [ ] Try to connect with GPU (Jetson Nano)
-
 
 References:
 
