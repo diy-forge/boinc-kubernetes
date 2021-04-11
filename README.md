@@ -4,6 +4,10 @@ Deploying a Boinc pod in k3s with 3 tasks
 
 ```bash
 
+  # Load Credentials in a secret
+  $> KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl apply -f ./secrets.yaml
+
+  $ Apply pod
   $> KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl apply -f ./boinc_client.yaml
 
   # We can check that everything went fine with the kubectl commands:
