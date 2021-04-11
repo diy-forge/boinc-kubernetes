@@ -19,4 +19,14 @@ spec:
         image: boinc/client
         env:
         - name: BOINC_CMD_LINE_OPTIONS
-          value: "-acct_mgr attach https://scienceunited.org/ <EMAIL> <PASS>"
+          value: "--acct_mgr attach https://scienceunited.org/ $SECRET_USERNAME $SECRET_PASSWORD"
+        - name: SECRET_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: manager-credentials
+              key: username
+        - name: SECRET_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: manager-credentials
+              key: password
