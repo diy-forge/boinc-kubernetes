@@ -6,7 +6,7 @@ Deploying a Boinc pod in k3s with 3 tasks
 
   $> KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl apply -f ./boinc_client.yaml
 
-  # We can check that everything went[] fine with the kubectl commands:
+  # We can check that everything went fine with the kubectl commands:
 
   $> KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl describe pod boinc-deployment
   $> KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl logs boinc-deployment
