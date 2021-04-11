@@ -4,22 +4,27 @@ Deploying a Boinc pod in k3s with 3 tasks
 
 ```bash
 
+  $> export KUBECONFIG=/etc/rancher/k3s/k3s.yaml (particular requirement for k3s)
+
   # Load Credentials in a secret
-  $> KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl apply -f ./secrets.yaml
+  $> kubectl apply -f ./secrets.yaml
 
   $ Apply pod
-  $> KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl apply -f ./boinc_client.yaml
+  $> kubectl apply -f ./boinc_client.yaml
 
   # We can check that everything went fine with the kubectl commands:
 
-  $> KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl describe pod boinc-deployment
-  $> KUBECONFIG=/etc/rancher/k3s/k3s.yaml kubectl logs boinc-deployment
-
+  $> kubectl describe pod boinc-deployment
+  $> kubectl logs boinc-deployment
+  
+  $> kubectl logs <POD_ID> -n default
+  
 ```
 
 TODOs
 
 - [x] Add kubernetes support
+- [ ] Using secrets template to avoid to push credentials
 - [ ] Try to connect with GPU (Jetson Nano)
 
 
