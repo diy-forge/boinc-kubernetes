@@ -21,6 +21,11 @@ Deploying a Boinc pod in k3s with 3 tasks
   
 ```
 
+Screenshot
+
+![Terminator Snapshot](running_with_jtop.png)
+
+
 TODOs
 
 - [x] Add kubernetes support
