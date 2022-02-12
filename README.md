@@ -1,6 +1,6 @@
 # boinc-kubernetes
 
-Deploying a Boinc pod in k3s with 3 tasks
+Deploying a Boinc pod in k8s with 3 tasks
 
 ```bash
 
