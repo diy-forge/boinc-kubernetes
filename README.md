@@ -1,15 +1,15 @@
 # boinc-kubernetes
 
-Deploying a Boinc pod in k3s with 3 tasks
+Deploying a BOINC client pod in k3s with 3 tasks
 
 ```bash
 
-  $> export KUBECONFIG=/etc/rancher/k3s/k3s.yaml (particular requirement for k3s)
+  $> export KUBECONFIG=/etc/rancher/k3s/k3s.yaml    # particular requirement for k3s
 
   # Load Credentials in a secret
   $> kubectl apply -f ./secrets.yaml
 
-  $ Apply deployment
+  # Apply deployment
   $> kubectl apply -f ./boinc_client.yaml
 
   # We can check that everything went fine with the kubectl commands:
